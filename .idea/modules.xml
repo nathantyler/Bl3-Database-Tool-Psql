@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/BL3-Postgres-Tool.iml" filepath="$PROJECT_DIR$/BL3-Postgres-Tool.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Bl3-Database-Tool-Psql.iml" filepath="$PROJECT_DIR$/Bl3-Database-Tool-Psql.iml" />
     </modules>
   </component>
 </project>

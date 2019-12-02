@@ -5,32 +5,33 @@ import java.awt.*;
 
 public class Bl3PTFrame extends JFrame {
     public static final String TITLE = "BL3 Postgres Tool";
-    public static final int WIDTH = 400;
-    public static final int HEIGHT = 400;
+    public static final int WIDTH = 700;
+    public static final int HEIGHT = 700;
 
-    private JTextField tableNameFld;
-    private JLabel tableNameLbl;
     private JPanel mainPanel;
-    private JComboBox manufacturerCB;
-    private JComboBox typeCB;
+    private JTabbedPane tabChoicesPane;
+    private JPanel gunNamesTab;
+    private JPanel gunEntriesTab;
+    private JLabel tableNameLbl;
+    private JTextField tableNameFld;
+    private JTextField filePathFld;
+    private JButton chooseFileBtn;
     private JLabel manufacturerLbl;
+    private JComboBox manufacturerCB;
     private JLabel typeLbl;
+    private JComboBox typeCB;
     private JCheckBox canBeNoElem;
     private JCheckBox canBeFire;
     private JCheckBox canBeCorrosive;
     private JCheckBox canBeShock;
     private JCheckBox canBeCryo;
     private JCheckBox canBeRad;
-    private JComboBox rarityCB;
     private JLabel rarityLbl;
-    private JTextField filePathFld;
-    private JButton chooseFileBtn;
+    private JComboBox rarityCB;
     private JButton saveEntryBtn;
-    private JTabbedPane gunNamesPane;
-    private JPanel gunNamesTab;
-    private JPanel gunEntriesTab;
 
     public Bl3PTFrame() throws HeadlessException {
+
         setSize(WIDTH, HEIGHT);
         setTitle(TITLE);
         setContentPane(mainPanel);
@@ -109,8 +110,8 @@ public class Bl3PTFrame extends JFrame {
         return saveEntryBtn;
     }
 
-    public JTabbedPane getGunNamesPane() {
-        return gunNamesPane;
+    public JTabbedPane getTabChoicesPane() {
+        return tabChoicesPane;
     }
 
     public JPanel getGunNamesTab() {
