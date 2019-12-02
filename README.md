@@ -8,3 +8,5 @@ no typing required.
 
 12/2/2019
 Very early stages still (the window has been laid out and rendered, but it currently does nothing). More to come.
+https://imgur.com/rqR55zP
+https://imgur.com/rqR55zP
