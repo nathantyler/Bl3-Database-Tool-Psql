@@ -28,10 +28,12 @@ public class Bl3PTFrame extends JFrame {
     private JCheckBox canBeRad;
     private JLabel rarityLbl;
     private JComboBox rarityCB;
+    private JTextField wpnNameFld;
+    private JLabel wpnNameLbl;
     private JButton saveEntryBtn;
 
-    public Bl3PTFrame() throws HeadlessException {
 
+    public Bl3PTFrame() throws HeadlessException {
         setSize(WIDTH, HEIGHT);
         setTitle(TITLE);
         setContentPane(mainPanel);
@@ -121,5 +123,13 @@ public class Bl3PTFrame extends JFrame {
     public JPanel getGunEntriesTab() {
         return gunEntriesTab;
     }
+
+    public JTextField getWpnNameFld() { return wpnNameFld; }
+
+    public void setWpnNameFld(JTextField wpnNameFld) { this.wpnNameFld = wpnNameFld; }
+
+    public JLabel getWpnNameLbl() { return wpnNameLbl; }
+
+    public void setWpnNameLbl(JLabel wpnNameLbl) { this.wpnNameLbl = wpnNameLbl; }
 
 }

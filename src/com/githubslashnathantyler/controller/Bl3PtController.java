@@ -26,6 +26,8 @@ public class Bl3PtController {
     private JCheckBox canBeShock;
     private JCheckBox canBeCryo;
     private JCheckBox canBeRad;
+    private JTextField wpnNameFld;
+    private JLabel wpnNameLbl;
     private JButton saveEntryBtn;
 
     private Bl3PTFrame bl3PtFrame;
@@ -62,6 +64,8 @@ public class Bl3PtController {
         canBeShock = bl3PtFrame.getCanBeShock();
         canBeRad = bl3PtFrame.getCanBeRad();
         canBeCryo = bl3PtFrame.getCanBeCryo();
+        wpnNameFld = bl3PtFrame.getWpnNameFld();
+        wpnNameLbl = bl3PtFrame.getWpnNameLbl();
         saveEntryBtn = bl3PtFrame.getSaveEntryBtn();
     }
 
