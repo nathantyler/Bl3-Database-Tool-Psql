@@ -126,10 +126,6 @@ public class Bl3PTFrame extends JFrame {
 
     public JTextField getWpnNameFld() { return wpnNameFld; }
 
-    public void setWpnNameFld(JTextField wpnNameFld) { this.wpnNameFld = wpnNameFld; }
-
     public JLabel getWpnNameLbl() { return wpnNameLbl; }
-
-    public void setWpnNameLbl(JLabel wpnNameLbl) { this.wpnNameLbl = wpnNameLbl; }
 
 }
