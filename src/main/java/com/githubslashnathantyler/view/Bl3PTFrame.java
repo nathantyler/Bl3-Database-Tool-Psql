@@ -5,8 +5,8 @@ import java.awt.*;
 
 public class Bl3PTFrame extends JFrame {
     public static final String TITLE  = "BL3 Postgres Tool";
-    public static final int    WIDTH  = 400;
-    public static final int    HEIGHT = 400;
+    public static final int    WIDTH  = 600;
+    public static final int    HEIGHT = 600;
 
     private JPanel      mainPanel;
     private JTabbedPane tabChoicesPane;

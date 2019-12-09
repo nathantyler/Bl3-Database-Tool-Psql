@@ -1,18 +1,60 @@
 package com.githubslashnathantyler.model;
 
+
+import javax.persistence.*;
 import java.util.Objects;
 
+@Entity
+@Table(name = "bl3_manufacturer")
 public class Bl3Manufacturer {
+
+    //public static final String TABLE_NAME = "bl3_manufacturer";
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "manufacturer_id", updatable = false, nullable = false)
     private Long id;
+
+    @Column(name = "manufacturer_name", updatable = false, nullable = false)
     private String name;
+
+    @Column(name = "is_pistol_maker", nullable = false)
     private Boolean pistolMaker;
+
+    @Column(name = "is_smg_maker", nullable = false)
     private Boolean smgMaker;
+
+    @Column(name = "is_sniper_maker", nullable = false)
     private Boolean sniperMaker;
+
+    @Column(name = "is_ar_maker", nullable = false)
     private Boolean arMaker;
+
+    @Column(name = "is_shotgun_maker", nullable = false)
     private Boolean shotgunMaker;
+
+    @Column(name = "is_rl_maker", nullable = false)
     private Boolean rlMaker;
+
+    @Column(name = "is_shield_maker", nullable = false)
     private Boolean shieldMaker;
+
+    @Column(name = "is_grenade_maker", nullable = false)
     private Boolean grenadeMaker;
+
+    public void setAll(String name, Boolean pistolMaker, Boolean smgMaker,
+                       Boolean sniperMaker, Boolean arMaker, Boolean shotgunMaker,
+                       Boolean rlMaker, Boolean shieldMaker, Boolean grenadeMaker) {
+        this.name = name;
+        this.pistolMaker = pistolMaker;
+        this.smgMaker = smgMaker;
+        this.sniperMaker = sniperMaker;
+        this.arMaker = arMaker;
+        this.shotgunMaker = shotgunMaker;
+        this.rlMaker = rlMaker;
+        this.shieldMaker = shieldMaker;
+        this.grenadeMaker = grenadeMaker;
+    }
 
     public Long getId() {
         return id;
@@ -113,7 +155,24 @@ public class Bl3Manufacturer {
     @Override
     public int hashCode() {
         return Objects.hash(getName(), getPistolMaker(), getSmgMaker(),
-                getSniperMaker(), getArMaker(), getShotgunMaker(),
-                getRlMaker(), getShieldMaker(), getGrenadeMaker());
+                            getSniperMaker(), getArMaker(), getShotgunMaker(),
+                            getRlMaker(), getShieldMaker(), getGrenadeMaker());
+    }
+
+    @Override
+    public String toString() {
+        return name;
+    }
+
+    public String generateInsert(String tableName) {
+        return "INSERT INTO " + tableName +
+                " (manufacturer_name, is_pistol_maker, " +
+                "is_smg_maker, is_sniper_maker, is_ar_maker, " +
+                "is_shotgun_maker, is_rl_maker, is_shield_maker, " +
+                "is_grenade_maker) VALUES ('" + getName() + "', " +
+                getPistolMaker() + ", " + getSmgMaker() + ", " +
+                getSniperMaker() + ", " + getArMaker() + ", " +
+                getShotgunMaker() + ", " + getRlMaker() + ", " +
+                getShieldMaker() + ", " + getGrenadeMaker() + ");";
     }
 }
