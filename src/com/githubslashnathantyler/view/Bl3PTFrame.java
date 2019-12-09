@@ -4,33 +4,34 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Bl3PTFrame extends JFrame {
-    public static final String TITLE = "BL3 Postgres Tool";
-    public static final int WIDTH = 700;
-    public static final int HEIGHT = 700;
+    public static final String TITLE  = "BL3 Postgres Tool";
+    public static final int    WIDTH  = 400;
+    public static final int    HEIGHT = 400;
 
-    private JPanel mainPanel;
+    private JPanel      mainPanel;
     private JTabbedPane tabChoicesPane;
-    private JPanel gunNamesTab;
-    private JPanel gunEntriesTab;
-    private JLabel tableNameLbl;
-    private JTextField tableNameFld;
-    private JTextField filePathFld;
-    private JButton chooseFileBtn;
-    private JLabel manufacturerLbl;
-    private JComboBox manufacturerCB;
-    private JLabel typeLbl;
-    private JComboBox typeCB;
-    private JCheckBox canBeNoElem;
-    private JCheckBox canBeFire;
-    private JCheckBox canBeCorrosive;
-    private JCheckBox canBeShock;
-    private JCheckBox canBeCryo;
-    private JCheckBox canBeRad;
-    private JLabel rarityLbl;
-    private JComboBox rarityCB;
-    private JTextField wpnNameFld;
-    private JLabel wpnNameLbl;
-    private JButton saveEntryBtn;
+    private JPanel      gunNamesTab;
+    private JPanel      gunEntriesTab;
+    private JLabel      tableNameLbl;
+    private JTextField  tableNameFld;
+    private JTextField  filePathFld;
+    private JButton     chooseFileBtn;
+    private JLabel      manufacturerLbl;
+    private JComboBox   manufacturerCB;
+    private JLabel      typeLbl;
+    private JComboBox   typeCB;
+    private JCheckBox   canBeNoElem;
+    private JCheckBox   canBeFire;
+    private JCheckBox   canBeCorrosive;
+    private JCheckBox   canBeShock;
+    private JCheckBox   canBeCryo;
+    private JCheckBox   canBeRad;
+    private JLabel      rarityLbl;
+    private JComboBox   rarityCB;
+    private JCheckBox   isWorldDrop;
+    private JLabel      wpnNameLbl;
+    private JTextField  wpnNameFld;
+    private JButton     saveEntryBtn;
 
 
     public Bl3PTFrame() throws HeadlessException {
@@ -124,8 +125,15 @@ public class Bl3PTFrame extends JFrame {
         return gunEntriesTab;
     }
 
-    public JTextField getWpnNameFld() { return wpnNameFld; }
+    public JTextField getWpnNameFld() {
+        return wpnNameFld;
+    }
 
-    public JLabel getWpnNameLbl() { return wpnNameLbl; }
+    public JLabel getWpnNameLbl() {
+        return wpnNameLbl;
+    }
 
+    public JCheckBox getIsWorldDrop() {
+        return isWorldDrop;
+    }
 }

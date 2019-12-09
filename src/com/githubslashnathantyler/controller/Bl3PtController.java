@@ -6,29 +6,31 @@ import javax.swing.*;
 
 public class Bl3PtController {
     public static final int FONT_SIZE_MULTIPLE = 4;
-    private JPanel mainPanel;
+
+    private JPanel      mainPanel;
     private JTabbedPane tabChoicesPane;
-    private JPanel gunNamesTab;
-    private JPanel gunEntriesTab;
-    private JLabel tableNameLbl;
-    private JTextField tableNameFld;
-    private JTextField filePathFld;
-    private JButton chooseFileBtn;
-    private JLabel manufacturerLbl;
-    private JComboBox manufacturerCB;
-    private JLabel typeLbl;
-    private JComboBox typeCB;
-    private JLabel rarityLbl;
-    private JComboBox rarityCB;
-    private JCheckBox canBeNoElem;
-    private JCheckBox canBeFire;
-    private JCheckBox canBeCorrosive;
-    private JCheckBox canBeShock;
-    private JCheckBox canBeCryo;
-    private JCheckBox canBeRad;
-    private JTextField wpnNameFld;
-    private JLabel wpnNameLbl;
-    private JButton saveEntryBtn;
+    private JPanel      gunNamesTab;
+    private JPanel      gunEntriesTab;
+    private JLabel      tableNameLbl;
+    private JTextField  tableNameFld;
+    private JTextField  filePathFld;
+    private JButton     chooseFileBtn;
+    private JLabel      manufacturerLbl;
+    private JComboBox   manufacturerCB;
+    private JLabel      typeLbl;
+    private JComboBox   typeCB;
+    private JLabel      rarityLbl;
+    private JComboBox   rarityCB;
+    private JCheckBox   canBeNoElem;
+    private JCheckBox   canBeFire;
+    private JCheckBox   canBeCorrosive;
+    private JCheckBox   canBeShock;
+    private JCheckBox   canBeCryo;
+    private JCheckBox   canBeRad;
+    private JCheckBox   isWorldDrop;
+    private JLabel      wpnNameLbl;
+    private JTextField  wpnNameFld;
+    private JButton     saveEntryBtn;
 
     private Bl3PTFrame bl3PtFrame;
 
@@ -64,8 +66,9 @@ public class Bl3PtController {
         canBeShock = bl3PtFrame.getCanBeShock();
         canBeRad = bl3PtFrame.getCanBeRad();
         canBeCryo = bl3PtFrame.getCanBeCryo();
-        wpnNameFld = bl3PtFrame.getWpnNameFld();
+        isWorldDrop = bl3PtFrame.getIsWorldDrop();
         wpnNameLbl = bl3PtFrame.getWpnNameLbl();
+        wpnNameFld = bl3PtFrame.getWpnNameFld();
         saveEntryBtn = bl3PtFrame.getSaveEntryBtn();
     }
 

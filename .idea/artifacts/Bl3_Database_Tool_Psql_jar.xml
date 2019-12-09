@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Bl3-Database-Tool-Psql:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Bl3_Database_Tool_Psql_jar</output-path>
+    <root id="archive" name="Bl3-Database-Tool-Psql.jar">
+      <element id="module-output" name="Bl3-Database-Tool-Psql" />
+    </root>
+  </artifact>
+</component>
