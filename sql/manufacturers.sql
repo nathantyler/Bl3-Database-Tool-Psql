@@ -71,7 +71,7 @@ INSERT INTO bl3_manufacturer (manufacturer_name, is_pistol_maker, is_smg_maker,
 INSERT INTO bl3_manufacturer (manufacturer_name, is_pistol_maker, is_smg_maker, 
                               is_sniper_maker, is_ar_maker, is_shotgun_maker, 
                               is_rl_maker, is_shield_maker, is_grenade_maker)
-                              VALUES ('Valdof', true, false, 
+                              VALUES ('Vladof', true, false, 
                                       true, true, false, 
                                       true, false, true);
                                       
