@@ -6,12 +6,18 @@ import java.util.Objects;
 
 @Entity
 @Table(name = "bl3_manufacturer")
+@NamedQueries({
+        @NamedQuery(name = "Bl3Manufacturer.findByName",
+                query = "SELECT m FROM Bl3Manufacturer m WHERE m.name = :name"),
+        @NamedQuery(name = "Bl3Manufacturer.findAll",
+                query = "SELECT m FROM Bl3Manufacturer m")
+})
 public class Bl3Manufacturer {
 
     //public static final String TABLE_NAME = "bl3_manufacturer";
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    //@GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "manufacturer_id", updatable = false, nullable = false)
     private Long id;
 

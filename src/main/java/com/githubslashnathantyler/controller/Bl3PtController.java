@@ -1,8 +1,12 @@
 package com.githubslashnathantyler.controller;
 
 import com.githubslashnathantyler.model.Bl3Manufacturer;
+import com.githubslashnathantyler.repositories.Bl3ManufacturerRepository;
 import com.githubslashnathantyler.view.Bl3PTFrame;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 import javax.swing.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
@@ -44,14 +48,30 @@ public class Bl3PtController {
     private FileWriter     fw;
     private BufferedWriter bw;
 
+    EntityManagerFactory managerFactory;
+    EntityManager manager;
+    Bl3ManufacturerRepository mRep;
+
     private Bl3PTFrame bl3PtFrame;
 
     public Bl3PtController() {
+        managerFactory = Persistence.createEntityManagerFactory("BL3-Items");
+        manager = managerFactory.createEntityManager();
+        mRep = new Bl3ManufacturerRepository(manager);
+
         this.bl3PtFrame = new Bl3PTFrame();
         fileChooser = new JFileChooser();
+
         bl3PtFrame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         giveCloseOperation();
         initializeJObjects();
+
+//        Bl3Manufacturer man = new Bl3Manufacturer();
+//        man.setAll("Atlas", true, false,
+//                   false, true, false,
+//                   true, false, true);
+//        manufacturerCB.addItem(man);
+        mRep.findAll().forEach(manufacturer -> manufacturerCB.addItem(manufacturer));
         giveChooseFileListener();
         giveSaveEntryListener();
         //setFontSizeWithMultiple(FONT_SIZE_MULTIPLE);

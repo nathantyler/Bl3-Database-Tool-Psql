@@ -1,5 +1,7 @@
 package com.githubslashnathantyler.view;
 
+import com.githubslashnathantyler.model.Bl3Manufacturer;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -8,30 +10,30 @@ public class Bl3PTFrame extends JFrame {
     public static final int    WIDTH  = 600;
     public static final int    HEIGHT = 600;
 
-    private JPanel      mainPanel;
-    private JTabbedPane tabChoicesPane;
-    private JPanel      gunNamesTab;
-    private JPanel      gunEntriesTab;
-    private JLabel      tableNameLbl;
-    private JTextField  tableNameFld;
-    private JTextField  filePathFld;
-    private JButton     chooseFileBtn;
-    private JLabel      manufacturerLbl;
-    private JComboBox   manufacturerCB;
-    private JLabel      typeLbl;
-    private JComboBox   typeCB;
-    private JCheckBox   canBeNoElem;
-    private JCheckBox   canBeFire;
-    private JCheckBox   canBeCorrosive;
-    private JCheckBox   canBeShock;
-    private JCheckBox   canBeCryo;
-    private JCheckBox   canBeRad;
-    private JLabel      rarityLbl;
-    private JComboBox   rarityCB;
-    private JCheckBox   isWorldDrop;
-    private JLabel      wpnNameLbl;
-    private JTextField  wpnNameFld;
-    private JButton     saveEntryBtn;
+    private JPanel                     mainPanel;
+    private JTabbedPane                tabChoicesPane;
+    private JPanel                     gunNamesTab;
+    private JPanel                     gunEntriesTab;
+    private JLabel                     tableNameLbl;
+    private JTextField                 tableNameFld;
+    private JTextField                 filePathFld;
+    private JButton                    chooseFileBtn;
+    private JLabel                     manufacturerLbl;
+    private JComboBox<Bl3Manufacturer> manufacturerCB;
+    private JLabel                     typeLbl;
+    private JComboBox                  typeCB;
+    private JCheckBox                  canBeNoElem;
+    private JCheckBox                  canBeFire;
+    private JCheckBox                  canBeCorrosive;
+    private JCheckBox                  canBeShock;
+    private JCheckBox                  canBeCryo;
+    private JCheckBox                  canBeRad;
+    private JLabel                     rarityLbl;
+    private JComboBox                  rarityCB;
+    private JCheckBox                  isWorldDrop;
+    private JLabel                     wpnNameLbl;
+    private JTextField                 wpnNameFld;
+    private JButton                    saveEntryBtn;
 
 
     public Bl3PTFrame() throws HeadlessException {
