@@ -9,7 +9,6 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.swing.*;
 import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.BufferedWriter;
@@ -90,30 +89,27 @@ public class Bl3PtController {
     }
 
     private void giveItemChangedListenerToManufacturerCB() {
-        manufacturerCB.addItemListener(new ItemListener() {
-            @Override
-            public void itemStateChanged(ItemEvent event) {
-                if (event.getStateChange() == ItemEvent.SELECTED) {
-                    typeCB.removeAllItems();
-                    Bl3Manufacturer manufacturer = (Bl3Manufacturer) manufacturerCB.getSelectedItem();
-                    if (manufacturer.getPistolMaker())
-                        typeCB.addItem(PISTOL);
-                    if (manufacturer.getSmgMaker())
-                        typeCB.addItem(SMG);
-                    if (manufacturer.getArMaker())
-                        typeCB.addItem(AR);
-                    if (manufacturer.getShotgunMaker())
-                        typeCB.addItem(SHOTGUN);
-                    if (manufacturer.getSniperMaker())
-                        typeCB.addItem(SNIPER);
-                    if (manufacturer.getRlMaker())
-                        typeCB.addItem(RL);
-                    if (manufacturer.getGrenadeMaker())
-                        typeCB.addItem(GRENADE);
-                    if (manufacturer.getShieldMaker())
-                        typeCB.addItem(SHIELD);
+        manufacturerCB.addItemListener(event -> {
+            if (event.getStateChange() == ItemEvent.SELECTED) {
+                typeCB.removeAllItems();
+                Bl3Manufacturer manufacturer = (Bl3Manufacturer) manufacturerCB.getSelectedItem();
+                if (manufacturer.getPistolMaker())
+                    typeCB.addItem(PISTOL);
+                if (manufacturer.getSmgMaker())
+                    typeCB.addItem(SMG);
+                if (manufacturer.getArMaker())
+                    typeCB.addItem(AR);
+                if (manufacturer.getShotgunMaker())
+                    typeCB.addItem(SHOTGUN);
+                if (manufacturer.getSniperMaker())
+                    typeCB.addItem(SNIPER);
+                if (manufacturer.getRlMaker())
+                    typeCB.addItem(RL);
+                if (manufacturer.getGrenadeMaker())
+                    typeCB.addItem(GRENADE);
+                if (manufacturer.getShieldMaker())
+                    typeCB.addItem(SHIELD);
 
-                }
             }
         });
     }
