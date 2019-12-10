@@ -8,6 +8,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.swing.*;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.BufferedWriter;
@@ -17,6 +19,15 @@ import java.io.IOException;
 
 public class Bl3PtController {
     public static final int FONT_SIZE_MULTIPLE = 4;
+
+    public static final String PISTOL  = "Pistol";
+    public static final String SMG     = "SMG";
+    public static final String AR      = "Assault Rifle";
+    public static final String SHOTGUN = "Shotgun";
+    public static final String SNIPER  = "Sniper";
+    public static final String RL      = "Rocket Launcher";
+    public static final String GRENADE = "Grenade";
+    public static final String SHIELD  = "Shield";
 
     private JPanel                     mainPanel;
     private JTabbedPane                tabChoicesPane;
@@ -29,7 +40,7 @@ public class Bl3PtController {
     private JLabel                     manufacturerLbl;
     private JComboBox<Bl3Manufacturer> manufacturerCB;
     private JLabel                     typeLbl;
-    private JComboBox                  typeCB;
+    private JComboBox<String>          typeCB;
     private JLabel                     rarityLbl;
     private JComboBox<String>          rarityCB;
     private JCheckBox                  canBeNoElem;
@@ -48,9 +59,9 @@ public class Bl3PtController {
     private FileWriter     fw;
     private BufferedWriter bw;
 
-    EntityManagerFactory managerFactory;
-    EntityManager manager;
-    Bl3ManufacturerRepository mRep;
+    private EntityManagerFactory      managerFactory;
+    private EntityManager             manager;
+    private Bl3ManufacturerRepository mRep;
 
     private Bl3PTFrame bl3PtFrame;
 
@@ -74,7 +85,37 @@ public class Bl3PtController {
         mRep.findAll().forEach(manufacturer -> manufacturerCB.addItem(manufacturer));
         giveChooseFileListener();
         giveSaveEntryListener();
+        giveItemChangedListenerToManufacturerCB();
         //setFontSizeWithMultiple(FONT_SIZE_MULTIPLE);
+    }
+
+    private void giveItemChangedListenerToManufacturerCB() {
+        manufacturerCB.addItemListener(new ItemListener() {
+            @Override
+            public void itemStateChanged(ItemEvent event) {
+                if (event.getStateChange() == ItemEvent.SELECTED) {
+                    typeCB.removeAllItems();
+                    Bl3Manufacturer manufacturer = (Bl3Manufacturer) manufacturerCB.getSelectedItem();
+                    if (manufacturer.getPistolMaker())
+                        typeCB.addItem(PISTOL);
+                    if (manufacturer.getSmgMaker())
+                        typeCB.addItem(SMG);
+                    if (manufacturer.getArMaker())
+                        typeCB.addItem(AR);
+                    if (manufacturer.getShotgunMaker())
+                        typeCB.addItem(SHOTGUN);
+                    if (manufacturer.getSniperMaker())
+                        typeCB.addItem(SNIPER);
+                    if (manufacturer.getRlMaker())
+                        typeCB.addItem(RL);
+                    if (manufacturer.getGrenadeMaker())
+                        typeCB.addItem(GRENADE);
+                    if (manufacturer.getShieldMaker())
+                        typeCB.addItem(SHIELD);
+
+                }
+            }
+        });
     }
 
     private void giveCloseOperation() {
@@ -92,7 +133,6 @@ public class Bl3PtController {
                         bw.close();
                 } catch (IOException e) {
                     e.printStackTrace();
-                    System.out.println("Prblem");
                 }
                 bl3PtFrame.dispose();
                 System.exit(0);
@@ -104,7 +144,7 @@ public class Bl3PtController {
         saveEntryBtn.addActionListener(event -> {
             if (file != null) {
                 try {
-                    bw.write(wpnNameFld.getText());
+                    bw.write(((Bl3Manufacturer) manufacturerCB.getSelectedItem()).generateInsert("bl3_manufacturer"));
                     bw.newLine();
                     bw.flush();
                     JOptionPane.showMessageDialog(null, "Wrote to file");

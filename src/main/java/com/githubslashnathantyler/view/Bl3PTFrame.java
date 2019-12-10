@@ -21,7 +21,7 @@ public class Bl3PTFrame extends JFrame {
     private JLabel                     manufacturerLbl;
     private JComboBox<Bl3Manufacturer> manufacturerCB;
     private JLabel                     typeLbl;
-    private JComboBox                  typeCB;
+    private JComboBox<String>          typeCB;
     private JCheckBox                  canBeNoElem;
     private JCheckBox                  canBeFire;
     private JCheckBox                  canBeCorrosive;
