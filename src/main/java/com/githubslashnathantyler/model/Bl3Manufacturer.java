@@ -17,7 +17,12 @@ public class Bl3Manufacturer {
     //public static final String TABLE_NAME = "bl3_manufacturer";
 
     @Id
-    //@GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(generator = "manufacturer_id_generator")
+    @SequenceGenerator(
+            name = "manufacturer_id_generator",
+            sequenceName = "manufacturer_id_sequence",
+            initialValue = 1000
+    )
     @Column(name = "manufacturer_id", updatable = false, nullable = false)
     private Long id;
 

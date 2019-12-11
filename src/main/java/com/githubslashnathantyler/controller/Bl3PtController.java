@@ -88,6 +88,8 @@ public class Bl3PtController {
         //setFontSizeWithMultiple(FONT_SIZE_MULTIPLE);
     }
 
+
+
     private void giveItemChangedListenerToManufacturerCB() {
         manufacturerCB.addItemListener(event -> {
             if (event.getStateChange() == ItemEvent.SELECTED) {
