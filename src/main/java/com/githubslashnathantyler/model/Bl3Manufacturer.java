@@ -147,6 +147,17 @@ public class Bl3Manufacturer {
         this.grenadeMaker = grenadeMaker;
     }
 
+    public String generateInsert(String tableName) {
+        return "INSERT INTO " + tableName +
+               " (manufacturer_name, is_pistol_maker, " +
+               "is_smg_maker, is_sniper_maker, is_ar_maker, " +
+               "is_shotgun_maker, is_rl_maker, is_shield_maker, " +
+               "is_grenade_maker) VALUES ('" + getName() + "', " +
+               getPistolMaker() + ", " + getSmgMaker() + ", " +
+               getSniperMaker() + ", " + getArMaker() + ", " +
+               getShotgunMaker() + ", " + getRlMaker() + ", " +
+               getShieldMaker() + ", " + getGrenadeMaker() + ");";
+    }
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -175,15 +186,5 @@ public class Bl3Manufacturer {
         return name;
     }
 
-    public String generateInsert(String tableName) {
-        return "INSERT INTO " + tableName +
-                " (manufacturer_name, is_pistol_maker, " +
-                "is_smg_maker, is_sniper_maker, is_ar_maker, " +
-                "is_shotgun_maker, is_rl_maker, is_shield_maker, " +
-                "is_grenade_maker) VALUES ('" + getName() + "', " +
-                getPistolMaker() + ", " + getSmgMaker() + ", " +
-                getSniperMaker() + ", " + getArMaker() + ", " +
-                getShotgunMaker() + ", " + getRlMaker() + ", " +
-                getShieldMaker() + ", " + getGrenadeMaker() + ");";
-    }
+
 }
