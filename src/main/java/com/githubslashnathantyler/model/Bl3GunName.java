@@ -170,8 +170,8 @@ public class Bl3GunName {
     @Override
     public int hashCode() {
         return Objects.hash(getId(), getType(), getName(),
-                            getManufacturerName(), getCanBeNoElement(),
-                            getCanBeFire(), getCanBeCorrosive(), getCanBeShock(),
-                            getCanBeRad(), getCanBeCryo(), getCanWorldDrop());
+                getManufacturerName(), getCanBeNoElement(),
+                getCanBeFire(), getCanBeCorrosive(), getCanBeShock(),
+                getCanBeRad(), getCanBeCryo(), getCanWorldDrop());
     }
 }

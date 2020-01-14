@@ -7,7 +7,6 @@ import com.githubslashnathantyler.view.Bl3PTFrame;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
-import javax.swing.*;
 import java.awt.event.ItemEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
@@ -66,54 +65,26 @@ public class Bl3PtController {
 
     public Bl3PtController() {
         managerFactory = Persistence.createEntityManagerFactory("BL3-Items");
-        manager = managerFactory.createEntityManager();
-        mRep = new Bl3ManufacturerRepository(manager);
+        manager        = managerFactory.createEntityManager();
+        mRep           = new Bl3ManufacturerRepository(manager);
 
         this.bl3PtFrame = new Bl3PTFrame();
-        fileChooser = new JFileChooser();
+        fileChooser     = new JFileChooser();
 
         bl3PtFrame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         giveCloseOperation();
         initializeJObjects();
 
-//        Bl3Manufacturer man = new Bl3Manufacturer();
-//        man.setAll("Atlas", true, false,
-//                   false, true, false,
-//                   true, false, true);
-//        manufacturerCB.addItem(man);
+        //        Bl3Manufacturer man = new Bl3Manufacturer();
+        //        man.setAll("Atlas", true, false,
+        //                   false, true, false,
+        //                   true, false, true);
+        //        manufacturerCB.addItem(man);
         mRep.findAll().forEach(manufacturer -> manufacturerCB.addItem(manufacturer));
         giveChooseFileListener();
         giveSaveEntryListener();
         giveItemChangedListenerToManufacturerCB();
         //setFontSizeWithMultiple(FONT_SIZE_MULTIPLE);
-    }
-
-
-
-    private void giveItemChangedListenerToManufacturerCB() {
-        manufacturerCB.addItemListener(event -> {
-            if (event.getStateChange() == ItemEvent.SELECTED) {
-                typeCB.removeAllItems();
-                Bl3Manufacturer manufacturer = (Bl3Manufacturer) manufacturerCB.getSelectedItem();
-                if (manufacturer.getPistolMaker())
-                    typeCB.addItem(PISTOL);
-                if (manufacturer.getSmgMaker())
-                    typeCB.addItem(SMG);
-                if (manufacturer.getArMaker())
-                    typeCB.addItem(AR);
-                if (manufacturer.getShotgunMaker())
-                    typeCB.addItem(SHOTGUN);
-                if (manufacturer.getSniperMaker())
-                    typeCB.addItem(SNIPER);
-                if (manufacturer.getRlMaker())
-                    typeCB.addItem(RL);
-                if (manufacturer.getGrenadeMaker())
-                    typeCB.addItem(GRENADE);
-                if (manufacturer.getShieldMaker())
-                    typeCB.addItem(SHIELD);
-
-            }
-        });
     }
 
     private void giveCloseOperation() {
@@ -138,19 +109,31 @@ public class Bl3PtController {
         });
     }
 
-    private void giveSaveEntryListener() {
-        saveEntryBtn.addActionListener(event -> {
-            if (file != null) {
-                try {
-                    bw.write(((Bl3Manufacturer) manufacturerCB.getSelectedItem()).generateInsert("bl3_manufacturer"));
-                    bw.newLine();
-                    bw.flush();
-                    JOptionPane.showMessageDialog(null, "Wrote to file");
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        });
+    private void initializeJObjects() {
+        mainPanel       = bl3PtFrame.getMainPanel();
+        tabChoicesPane  = bl3PtFrame.getTabChoicesPane();
+        gunNamesTab     = bl3PtFrame.getGunNamesTab();
+        gunEntriesTab   = bl3PtFrame.getGunEntriesTab();
+        tableNameLbl    = bl3PtFrame.getTableNameLbl();
+        tableNameFld    = bl3PtFrame.getTableNameFld();
+        filePathFld     = bl3PtFrame.getFilePathFld();
+        chooseFileBtn   = bl3PtFrame.getChooseFileBtn();
+        manufacturerLbl = bl3PtFrame.getManufacturerLbl();
+        manufacturerCB  = bl3PtFrame.getManufacturerCB();
+        typeLbl         = bl3PtFrame.getTypeLbl();
+        typeCB          = bl3PtFrame.getTypeCB();
+        rarityLbl       = bl3PtFrame.getRarityLbl();
+        rarityCB        = bl3PtFrame.getRarityCB();
+        canBeNoElem     = bl3PtFrame.getCanBeNoElem();
+        canBeFire       = bl3PtFrame.getCanBeFire();
+        canBeCorrosive  = bl3PtFrame.getCanBeCorrosive();
+        canBeShock      = bl3PtFrame.getCanBeShock();
+        canBeRad        = bl3PtFrame.getCanBeRad();
+        canBeCryo       = bl3PtFrame.getCanBeCryo();
+        isWorldDrop     = bl3PtFrame.getIsWorldDrop();
+        wpnNameLbl      = bl3PtFrame.getWpnNameLbl();
+        wpnNameFld      = bl3PtFrame.getWpnNameFld();
+        saveEntryBtn    = bl3PtFrame.getSaveEntryBtn();
     }
 
     private void giveChooseFileListener() {
@@ -179,35 +162,49 @@ public class Bl3PtController {
         });
     }
 
-    public void displayBl3PtWindow() {
-        bl3PtFrame.setVisible(true);
+    private void giveSaveEntryListener() {
+        saveEntryBtn.addActionListener(event -> {
+            if (file != null) {
+                try {
+                    bw.write(((Bl3Manufacturer) manufacturerCB.getSelectedItem()).generateInsert("bl3_manufacturer"));
+                    bw.newLine();
+                    bw.flush();
+                    JOptionPane.showMessageDialog(null, "Wrote to file");
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
     }
 
-    private void initializeJObjects() {
-        mainPanel = bl3PtFrame.getMainPanel();
-        tabChoicesPane = bl3PtFrame.getTabChoicesPane();
-        gunNamesTab = bl3PtFrame.getGunNamesTab();
-        gunEntriesTab = bl3PtFrame.getGunEntriesTab();
-        tableNameLbl = bl3PtFrame.getTableNameLbl();
-        tableNameFld = bl3PtFrame.getTableNameFld();
-        filePathFld = bl3PtFrame.getFilePathFld();
-        chooseFileBtn = bl3PtFrame.getChooseFileBtn();
-        manufacturerLbl = bl3PtFrame.getManufacturerLbl();
-        manufacturerCB = bl3PtFrame.getManufacturerCB();
-        typeLbl = bl3PtFrame.getTypeLbl();
-        typeCB = bl3PtFrame.getTypeCB();
-        rarityLbl = bl3PtFrame.getRarityLbl();
-        rarityCB = bl3PtFrame.getRarityCB();
-        canBeNoElem = bl3PtFrame.getCanBeNoElem();
-        canBeFire = bl3PtFrame.getCanBeFire();
-        canBeCorrosive = bl3PtFrame.getCanBeCorrosive();
-        canBeShock = bl3PtFrame.getCanBeShock();
-        canBeRad = bl3PtFrame.getCanBeRad();
-        canBeCryo = bl3PtFrame.getCanBeCryo();
-        isWorldDrop = bl3PtFrame.getIsWorldDrop();
-        wpnNameLbl = bl3PtFrame.getWpnNameLbl();
-        wpnNameFld = bl3PtFrame.getWpnNameFld();
-        saveEntryBtn = bl3PtFrame.getSaveEntryBtn();
+    private void giveItemChangedListenerToManufacturerCB() {
+        manufacturerCB.addItemListener(event -> {
+            if (event.getStateChange() == ItemEvent.SELECTED) {
+                typeCB.removeAllItems();
+                Bl3Manufacturer manufacturer = (Bl3Manufacturer) manufacturerCB.getSelectedItem();
+                if (manufacturer.getPistolMaker())
+                    typeCB.addItem(PISTOL);
+                if (manufacturer.getSmgMaker())
+                    typeCB.addItem(SMG);
+                if (manufacturer.getArMaker())
+                    typeCB.addItem(AR);
+                if (manufacturer.getShotgunMaker())
+                    typeCB.addItem(SHOTGUN);
+                if (manufacturer.getSniperMaker())
+                    typeCB.addItem(SNIPER);
+                if (manufacturer.getRlMaker())
+                    typeCB.addItem(RL);
+                if (manufacturer.getGrenadeMaker())
+                    typeCB.addItem(GRENADE);
+                if (manufacturer.getShieldMaker())
+                    typeCB.addItem(SHIELD);
+
+            }
+        });
+    }
+
+    public void displayBl3PtWindow() {
+        bl3PtFrame.setVisible(true);
     }
 
     private void setFontSizeWithMultiple(int mult) {

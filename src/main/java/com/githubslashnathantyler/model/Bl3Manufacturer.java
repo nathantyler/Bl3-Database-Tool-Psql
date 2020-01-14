@@ -166,8 +166,8 @@ public class Bl3Manufacturer {
     @Override
     public int hashCode() {
         return Objects.hash(getName(), getPistolMaker(), getSmgMaker(),
-                            getSniperMaker(), getArMaker(), getShotgunMaker(),
-                            getRlMaker(), getShieldMaker(), getGrenadeMaker());
+                getSniperMaker(), getArMaker(), getShotgunMaker(),
+                getRlMaker(), getShieldMaker(), getGrenadeMaker());
     }
 
     @Override

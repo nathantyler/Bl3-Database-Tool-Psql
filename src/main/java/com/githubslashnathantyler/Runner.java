@@ -19,10 +19,10 @@ public class Runner {
 
         Bl3PtController bl3PtController = new Bl3PtController();
         bl3PtController.displayBl3PtWindow();
-        Bl3Manufacturer man = new Bl3Manufacturer();
-        man.setAll("Atlas", true, false,
-                   false, true, false,
-                   true, false, true);
+//        Bl3Manufacturer man = new Bl3Manufacturer();
+//        man.setAll("Atlas", true, false,
+//                   false, true, false,
+//                   true, false, true);
         //System.out.println(man.generateInsert("bl3_manufacturer"));
 
     }
