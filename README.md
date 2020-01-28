@@ -6,8 +6,6 @@ The goal is to write insert queries to a .psql file to easily fill a table. This
 all entries by hand. The goal is to automate as much as the process as possible so that there will be little to
 no typing required.
 
-12/2/2019
-Very early stages still (the window has been laid out and rendered, but it currently does nothing). More to come.
 
 https://imgur.com/kTJ0Thl
 
