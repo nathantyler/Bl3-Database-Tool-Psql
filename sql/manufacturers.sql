@@ -87,5 +87,5 @@ INSERT INTO bl3_manufacturer (manufacturer_name, is_pistol_maker, is_smg_maker,
                               is_rl_maker, is_shield_maker, is_grenade_maker)
                               VALUES ('Pangolin', false, false, 
                                       false, false, false, 
-                                      false, true, false);                                      
+                                      false, true, true);                                      
 END TRANSACTION;

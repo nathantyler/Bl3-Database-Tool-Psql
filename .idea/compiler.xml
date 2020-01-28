@@ -6,10 +6,12 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="BL3-Postgres-Tool" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="Bl3-Database-Tool-Psql" target="1.8" />
+      <module name="BL3-Postgres-Tool" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

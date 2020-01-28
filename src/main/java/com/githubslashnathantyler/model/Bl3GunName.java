@@ -68,6 +68,14 @@ public class Bl3GunName {
         this.type = type;
     }
 
+    public String getManufacturerName() {
+        return manufacturerName;
+    }
+
+    public void setManufacturerName(String manufacturerName) {
+        this.manufacturerName = manufacturerName;
+    }
+
     public Boolean isCanBeNoElement() {
         return canBeNoElement;
     }
@@ -135,10 +143,10 @@ public class Bl3GunName {
                "can_be_corrosive, can_radiation, can_be_cryo, " +
                "can_world_drop) VALUES (" + getName() + ", " +
                getManufacturerName() + ", " + getType() + ", " +
-               getCanBeNoElement() + ", " + getCanBeFire() + ", " +
-               getCanBeFire() + ", " + getCanBeShock() + ", " +
-               getCanBeCorrosive() + ", " + getCanBeRad() + ", " +
-               getCanBeCryo() + " " + getCanWorldDrop() + ");";
+               isCanBeNoElement() + ", " + isCanBeFire() + ", " +
+               isCanBeFire() + ", " + isCanBeShock() + ", " +
+               isCanBeCorrosive() + ", " + isCanBeRad() + ", " +
+               isCanBeCryo() + " " + isCanWorldDrop() + ");";
     }
 
     @Override
@@ -150,20 +158,21 @@ public class Bl3GunName {
                Objects.equals(getType(), that.getType()) &&
                Objects.equals(getName(), that.getName()) &&
                Objects.equals(getManufacturerName(), that.getManufacturerName()) &&
-               Objects.equals(getCanBeNoElement(), that.getCanBeNoElement()) &&
-               Objects.equals(getCanBeFire(), that.getCanBeFire()) &&
-               Objects.equals(getCanBeCorrosive(), that.getCanBeCorrosive()) &&
-               Objects.equals(getCanBeShock(), that.getCanBeShock()) &&
-               Objects.equals(getCanBeRad(), that.getCanBeRad()) &&
-               Objects.equals(getCanBeCryo(), that.getCanBeCryo()) &&
-               Objects.equals(getCanWorldDrop(), that.getCanWorldDrop());
+               Objects.equals(isCanBeNoElement(), that.isCanBeNoElement()) &&
+               Objects.equals(isCanBeFire(), that.isCanBeFire()) &&
+               Objects.equals(isCanBeCorrosive(), that.isCanBeCorrosive()) &&
+               Objects.equals(isCanBeShock(), that.isCanBeShock()) &&
+               Objects.equals(isCanBeRad(), that.isCanBeRad()) &&
+               Objects.equals(isCanBeCryo(), that.isCanBeCryo()) &&
+               Objects.equals(isCanWorldDrop(), that.isCanWorldDrop());
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(getId(), getType(), getName(),
-                            getManufacturerName(), getCanBeNoElement(),
-                            getCanBeFire(), getCanBeCorrosive(), getCanBeShock(),
-                            getCanBeRad(), getCanBeCryo(), getCanWorldDrop());
+                            getManufacturerName(), isCanBeNoElement(),
+                            isCanBeFire(), isCanBeCorrosive(), isCanBeShock(),
+                            isCanBeRad(), isCanBeCryo(), isCanWorldDrop());
     }
+
 }

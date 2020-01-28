@@ -1,19 +1,13 @@
 package com.githubslashnathantyler.controller;
 
-import com.githubslashnathantyler.model.Bl3Manufacturer;
-import com.githubslashnathantyler.repositories.Bl3ManufacturerRepository;
-import com.githubslashnathantyler.view.Bl3PTFrame;
+import com.githubslashnathantyler.model.*;
+import com.githubslashnathantyler.repositories.*;
+import com.githubslashnathantyler.view.*;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-import java.awt.event.ItemEvent;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+import javax.persistence.*;
+import javax.swing.*;
+import java.awt.event.*;
+import java.io.*;
 
 public class Bl3PtController {
     public static final int FONT_SIZE_MULTIPLE = 4;
@@ -158,7 +152,6 @@ public class Bl3PtController {
             } /*else {
                 JOptionPane.showMessageDialog(null, "No file selected!");
             }*/
-            ;
         });
     }
 
